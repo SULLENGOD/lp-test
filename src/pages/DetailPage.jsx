@@ -12,8 +12,19 @@ const DetailPage = () => {
 
   return (
     <>
-      <div>
-        <h1>{char.name}</h1>
+      <div className="flex flex-col text-center max-w-96 m-auto p-5">
+        <div>
+          <div>
+            <img src={char.image} alt={char.name} className="m-auto" />
+          </div>
+          <div className="p-5">
+            <h1 className="p-5 text-3xl">{char.name}</h1>
+            <h2>{`Status: ${char.status}`}</h2>
+            <h2>{`Species: ${char.species}`}</h2>
+            <h2>{`Location: ${char.location.name}`}</h2>
+          </div>
+          <a href={char.url} className="m-5">{char.url}</a>
+        </div>
       </div>
     </>
   );
