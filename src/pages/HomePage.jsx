@@ -1,11 +1,9 @@
-import DinamycForm from "../components/DinamycForm";
 import GridList from "../components/GridList";
 
 const HomePage = () => {
   return (
-    <div className="p-3">
+    <div className="flex flex-col justify-center m-auto p-3 max-w-auto">
       <GridList />
-      <DinamycForm />
     </div>
   );
 };

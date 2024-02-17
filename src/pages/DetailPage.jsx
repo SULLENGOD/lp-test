@@ -1,13 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useChar } from "../hooks/useChar";
+import Spiner from "../layout/Spiner";
 
 const DetailPage = () => {
   const { id } = useParams("id");
   const { char, error, isLoading } = useChar(id);
 
-  console.log(char);
-
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <div className="flex justify-center"><Spiner /></div>;
   if (error) return <h1>{error.message}</h1>;
 
   return (
@@ -15,7 +14,7 @@ const DetailPage = () => {
       <div className="flex flex-col text-center max-w-96 m-auto p-5">
         <div>
           <div>
-            <img src={char.image} alt={char.name} className="m-auto" />
+            <img src={char.image} alt={char.name} className="m-auto rounded-full" />
           </div>
           <div className="p-5">
             <h1 className="p-5 text-3xl">{char.name}</h1>

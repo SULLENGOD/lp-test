@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import HomePage from "../pages/HomePage"
 import DetailPage from "../pages/DetailPage"
+import DynamicForm from '../components/DinamycForm'
 
 
 const RouterApp = () => {
@@ -8,6 +9,7 @@ const RouterApp = () => {
     <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/:id" element={<DetailPage />}/>
+        <Route path="/form" element={<DynamicForm />}/>
     </Routes>
   )
 }

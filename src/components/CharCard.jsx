@@ -4,14 +4,18 @@ import { Link } from "react-router-dom";
 const CharCard = ({ char }) => {
   return (
     <>
-      <Link to={`/${char.id}`}>
-        <div className="flex flex-col">
-          <img src={char.image} alt={char.name} className="size-40 m-auto" />
-          <div className="m-auto">
-            <h1 className="text-2xl">{char.name}</h1>
-          </div>
+      <div className="flex flex-col">
+        <Link to={`/${char.id}`}>
+          <img
+            src={char.image}
+            alt={char.name}
+            className="size-40 m-auto rounded-full hover:scale-125 hover:shadow-lg ease-in-out duration-200"
+          />
+        </Link>
+        <div className="m-auto p-11">
+          <h1 className="text-2xl">{char.name}</h1>
         </div>
-      </Link>
+      </div>
     </>
   );
 };
