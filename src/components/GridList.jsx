@@ -26,13 +26,15 @@ const GridList = () => {
 
   return (
     <>
-      <div className="lg:grid lg:grid-cols-3 md:flex md:flex-col gap-3 m-5 p-5 ">
+      <div className="lg:grid lg:grid-cols-3 md:flex md:flex-col gap-3 m-5 p-5 max-w-4xl self-center">
         {characters.map((char, index) => (
           <CharCard key={`${char.id}-${index}`} char={char} />
         ))}
         {
           isLoading ? (
-            <Spiner />
+            <div className="flex justify-center">
+              <Spiner />
+            </div>
           ) : (
             <></>
           )
