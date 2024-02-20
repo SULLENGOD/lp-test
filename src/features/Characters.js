@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchData } from "../services/fetchData";
 
-export const fetchCharacters = createAsyncThunk('characters/fetchCaracters', async () => {
-    return await fetchData();
+export const fetchCharacters = createAsyncThunk('characters/fetchCaracters', async (page) => {
+    return await fetchData(page);
 })
 
 export const  characterSlicer = createSlice({
@@ -21,7 +21,7 @@ export const  characterSlicer = createSlice({
             })
             .addCase(fetchCharacters.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.data = action.payload;
+                state.data = [...state.data, ...action.payload];
             })
             .addCase(fetchCharacters.rejected, (state, action) => {
                 state.isLoading = false;
